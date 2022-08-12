@@ -24,7 +24,7 @@ public class NewsRestController {
     @Autowired
     private NewsService newsSvc;
     
-    @GetMapping(value="{id}")
+    @GetMapping(value="{id}") //manually key in URL /news/27933885
     public ResponseEntity<String> getArticle (@PathVariable String id) {
 
         Optional<Article> opt = newsSvc.getArticleById(id);
