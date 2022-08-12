@@ -17,21 +17,25 @@
                 <form method="post" th:object="${article}" th:action="@{/articles}">
 
                 <th:block>
-                <h2 th:text="${ar.id}"></h2>            
-                <h2 th:text="${ar.id}"></h2>            
-                <h2 th:text="${ar.published_on}"></h2>  
-                <h2 th:text="${ar.title}"></h2>         
-                <h2 th:src="@{${ar.url}}"></h2>         
                 <img th:src="@{${ar.imageurl}}">        
+                <h2>Id: <span th:text="${ar.id}"></span></h2>                        
+                <br>
+                <h2 th:text="${ar.title}"></h2>         
+                <br>
                 <h2 th:text="${ar.body}"></h2>          
-                <h2 th:text="${ar.tags}"></h2>          
-                <h2 th:text="${ar.categories}"></h2>
-
+                <br>
+                <h2>Categories: <span th:text="${ar.categories}"></span></h2>
+                <h2>Tags: <span th:text="${ar.tags}"></span></h2>          
+                <br>
+                <h2>Published: <span th:text="${ar.published_on}"></span></h2>  
+                <a data-th-href="${ar.url}">Link</a>         
                 </th:block>
-
-                <input type="checkbox" name="article" th:value="${article}"/>
+                <br>
+                <input type="checkbox" id="save" name="save" value="${article}">
+                <label for="save">Save</label><br>
 
                 </form>
+                <br><br>
             </div>
       </div>
 

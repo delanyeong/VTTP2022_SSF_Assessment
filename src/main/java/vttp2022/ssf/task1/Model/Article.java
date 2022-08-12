@@ -56,7 +56,6 @@ public class Article {
         Article ar = new Article();
         ar.setId(jo.getString("id"));
         ar.setPublished_on(Integer.toString(jo.getInt("published_on")));
-        // ar.setPublished_on(jo.getString("published_on"));
         ar.setTitle(jo.getString("title"));
         ar.setUrl(jo.getString("url"));
         ar.setImageurl(jo.getString("imageurl"));
