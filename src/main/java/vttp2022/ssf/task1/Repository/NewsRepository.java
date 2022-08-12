@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -23,5 +24,10 @@ public class NewsRepository {
             usArtList.stream()
                     .toList());
         }
+
+    public String get (String id) {
+        ValueOperations<String, String> valueOps = template.opsForValue();
+        return valueOps.get(id);
+    }
 
 }

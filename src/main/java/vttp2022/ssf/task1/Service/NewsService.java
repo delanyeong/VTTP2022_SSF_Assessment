@@ -5,6 +5,7 @@ import java.io.StringReader;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -76,8 +77,16 @@ public class NewsService {
         }
 
         newsRepo.save(saveArtList);
+    }
 
+    public Optional<Article> getArticleById (String id) {
+        
+        String result = newsRepo.get(id);
 
+        if (null == result)
+            return Optional.empty();
+
+        return Optional.of(Article.create(result));
     }
 
 

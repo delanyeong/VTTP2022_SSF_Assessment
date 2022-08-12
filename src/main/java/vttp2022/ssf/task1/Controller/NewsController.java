@@ -38,6 +38,7 @@ public class NewsController {
     @PostMapping (path="articles")
     public String postArt (Article[] usArtArray, Model model) {
         logger.info(">>>>>>>>>>>>>>>>>>>> raw request: " + usArtArray);
+        // logger.info(">>>>>>>>>>>>>>>>>>>> raw request: " + article);
 
         List<Article> usArtList = new LinkedList<>();
 

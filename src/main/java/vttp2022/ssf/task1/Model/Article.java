@@ -1,7 +1,10 @@
 package vttp2022.ssf.task1.Model;
 
+import java.io.StringReader;
+
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
+import jakarta.json.JsonReader;
 
 
 public class Article {
@@ -40,6 +43,13 @@ public class Article {
     public String getCategories() {return this.categories;}
     public void setCategories(String categories) {this.categories = categories;}
 
+
+    public static Article create (String jsonStr) {
+
+        StringReader strReader = new StringReader(jsonStr);
+        JsonReader reader = Json.createReader(strReader);
+        return createArticle(reader.readObject());
+    }
 
     public static Article createArticle (JsonObject jo) {
         
